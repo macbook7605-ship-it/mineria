@@ -5,7 +5,11 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { fileURLToPath, URL } from 'node:url';
 import pkg from './package.json' with { type: 'json' };
 
+// VITE_PREVIEW=1: compilación de vista previa (rutas relativas, sin service worker).
+const preview = !!process.env.VITE_PREVIEW;
+
 export default defineConfig({
+  base: preview ? './' : '/',
   define: { __APP_VERSION__: JSON.stringify(pkg.version) },
   resolve: {
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
@@ -14,6 +18,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
+      disable: preview,
       registerType: 'autoUpdate',
       includeAssets: ['icons/icon.svg', 'icons/apple-touch-icon.png'],
       manifest: {

@@ -4,7 +4,7 @@ export function Logo({ size = 'md' }: { size?: 'md' | 'lg' }) {
   const lg = size === 'lg';
   return (
     <div className="flex items-center gap-3">
-      <img src="/icons/icon.svg" alt="" className={lg ? 'size-16' : 'size-10'} />
+      <img src={`${import.meta.env.BASE_URL}icons/icon.svg`} alt="" className={lg ? 'size-16' : 'size-10'} />
       <div className="leading-none">
         <div className={cx('font-extrabold tracking-tight', lg ? 'text-3xl' : 'text-lg')}>
           MINERÍA <span className="text-mina">CONTROL</span>

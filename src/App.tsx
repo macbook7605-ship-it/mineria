@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from '@/auth/AuthContext';
 import { RequireAuth, RequirePermission } from '@/auth/ProtectedRoute';
 import { AppShell } from '@/components/layout/AppShell';
@@ -26,10 +26,13 @@ const ReportesPage = lazy(() => import('@/pages/mas/ReportesPage'));
 const ConfiguracionPage = lazy(() => import('@/pages/mas/ConfiguracionPage'));
 const UsuariosPage = lazy(() => import('@/pages/mas/UsuariosPage'));
 
+// La vista previa se aloja en un marco donde la URL no es controlable.
+const Router = import.meta.env.VITE_PREVIEW ? MemoryRouter : BrowserRouter;
+
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <Router>
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/login" element={<LoginPage />} />
@@ -81,7 +84,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
-      </BrowserRouter>
+      </Router>
     </AuthProvider>
   );
 }
