@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#0a0e14"/>
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="none" stroke="#f5b301" stroke-width="10" opacity=".35"/>
+  <!-- casco minero -->
+  <path d="M116 318c0-82 62-146 140-146s140 64 140 146z" fill="#f5b301"/>
+  <rect x="96" y="314" width="320" height="38" rx="19" fill="#f5b301"/>
+  <rect x="238" y="150" width="36" height="58" rx="10" fill="#0a0e14"/>
+  <circle cx="256" cy="232" r="30" fill="#0a0e14"/>
+  <circle cx="256" cy="232" r="17" fill="#fff6d6"/>
+  <!-- montaña -->
+  <path d="M136 400l64-38 40 22 56-44 80 60z" fill="#e8ebf0" opacity=".9"/>
+</svg>
